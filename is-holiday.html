@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    RED.nodes.registerType('is holiday', {
+        category: 'calendar',
+        color: '#FDF0C2',
+        defaults: {
+            name: { value: '' },
+            configuration: { value: '', type: 'hebcal-config' },
+        },
+        inputs: 1,
+        outputs: 2,
+        outputLabels: ['Regular', 'Issur melacha'],
+        icon: 'font-awesome/fa-calendar',
+        label: 'Is Holiday',
+        label: function() {
+            return this.name || 'is holiday';
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="is holiday">
+    <div class="form-row">
+        <label for="node-input-configuration"><i class="fa fa-cog"></i> Configuration</label>
+        <input id="node-input-configuration">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-pencil"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="is holiday">
+    <p>Hebrew (Jewish) calendar helper for Node-Red.</p>
+</script>

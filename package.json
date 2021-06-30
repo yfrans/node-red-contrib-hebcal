@@ -1,0 +1,29 @@
+{
+  "name": "node-red-contrib-hebcal",
+  "version": "1.0.0",
+  "description": "Hebrew calendar helper for Node-Red.",
+  "node-red": {
+    "nodes": {
+      "hebcal-event": "hebcal-event.js",
+      "is-holiday": "is-holiday.js",
+      "hebcal-config": "hebcal-config.js"
+    }
+  },
+  "dependencies": {
+    "@hebcal/core": "^3.19.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yfrans/node-red-contrib-hebcal.git"
+  },
+  "keywords": [
+    "node-red",
+    "hebcal"
+  ],
+  "author": "Yossi Frances",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yfrans/node-red-contrib-hebcal/issues"
+  },
+  "homepage": "https://github.com/yfrans/node-red-contrib-hebcal#readme"
+}

@@ -1,0 +1,32 @@
+<script type="text/javascript">
+    RED.nodes.registerType('hebcal event',{
+        category: 'calendar',
+        color: '#C7E9C0',
+        defaults: {
+            name: { value: '' },
+            configuration: { value: '', type: 'hebcal-config' },
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: 'font-awesome/fa-calendar',
+        label: 'Hebcal',
+        label: function() {
+            return this.name || 'hebcal-event';
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="hebcal event">
+    <div class="form-row">
+        <label for="node-input-configuration"><i class="fa fa-cog"></i> Configuration</label>
+        <input id="node-input-configuration">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-pencil"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="hebcal event">
+    <p>Hebrew (Jewish) calendar helper for Node-Red.</p>
+</script>

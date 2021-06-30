@@ -1,0 +1,36 @@
+<script type="text/javascript">
+    RED.nodes.registerType('hebcal-config',{
+        category: 'config',
+        defaults: {
+            name: { value: '', required: true },
+            latitude: { value: '', required: true, validate: RED.validators.number() },
+            longitude: { value: '', required: true, validate: RED.validators.number() },
+            isil: { value: '1', required: true }
+        },
+        label: function() {
+            return this.name || 'hebcal-config';
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="hebcal-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-pencil"></i> Name</label>
+        <input type="text" id="node-config-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-latitude"><i class="fa fa-globe"></i> Latitude</label>
+        <input type="text" id="node-config-input-latitude">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-longitude"><i class="fa fa-globe"></i> Longitude</label>
+        <input type="text" id="node-config-input-longitude">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-isil"><i class="fa fa-flag-o"></i> Is IL</label>
+        <select id="node-config-input-isil">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+    </div>
+</script>
