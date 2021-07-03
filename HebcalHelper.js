@@ -34,13 +34,8 @@ class HebcalHelper extends EventEmitter {
             return;
         }
 
-        this.generateHolidaysIfNeeded();
-
-        let now = new Date();
-        this.checkHoliday(now);
-
-        this._interval = setTimeout(() => {
-            this.startHolidayCheckInterval();
+        this._interval = setInterval(() => {
+            this.checkHoliday(new Date());
         }, 1000);
     }
 
@@ -48,6 +43,12 @@ class HebcalHelper extends EventEmitter {
         this.generateHolidaysIfNeeded();
 
         let now = date || new Date();
+
+        let isNowHoliday = this.checkHoliday(now);
+        if (isNowHoliday) {
+            return isNowHoliday;
+        }
+
         let found = null;
         for (var i = 0; i < this._holidays.length && !found; i++) {
             if (this._holidays[i].to <= now) {
@@ -69,12 +70,12 @@ class HebcalHelper extends EventEmitter {
             if (emit) {
                 this.setIssurMelacha(found);
             }
-            return true;
+            return found;
         } else {
             if (emit) {
                 this.setIssurMelacha();
             }
-            return false;
+            return null;
         }
     }
 
