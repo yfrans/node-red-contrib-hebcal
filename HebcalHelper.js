@@ -98,7 +98,7 @@ class HebcalHelper extends EventEmitter {
         const events1 = HebrewCalendar.calendar({ ...this._options, year: new Date().getFullYear() });
         const events2 = HebrewCalendar.calendar({ ...this._options, year: new Date().getFullYear() + 1 });
         const events = events1.concat(events2);
-        
+
         this._holidays = [];
         
         let lightingIndex = -1;
@@ -111,8 +111,10 @@ class HebcalHelper extends EventEmitter {
                     });
                     lightingIndex = this._holidays.length - 1;
                 } else if (ev.getDesc() === 'Havdalah') {
-                    this._holidays[lightingIndex].to = ev.eventTime;
-                    lightingIndex = -1;
+                    if (this._holidays.length > 0) {
+                        this._holidays[lightingIndex].to = ev.eventTime;
+                        lightingIndex = -1;
+                    }
                 }
             }
         }
